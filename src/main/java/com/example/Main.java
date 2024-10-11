@@ -13,16 +13,27 @@ public class Main {
         System.out.println("client partito");
         Socket s = new Socket("localhost", 3000);
         System.out.println("il client si è collegato");
+         
 
         BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
         DataOutputStream out = new DataOutputStream(s.getOutputStream());
+        
+        String stringaInviata;
 
-        Scanner scanner = new Scanner(System.in);
-        String stringaInviata = scanner.nextLine();
-        out.writeBytes(stringaInviata + "\n");
+        do{
+            
+            Scanner scanner = new Scanner(System.in);
+            stringaInviata = scanner.nextLine();
+            out.writeBytes(stringaInviata + "\n");
+            String stringaRicevuta = in.readLine();
 
-        String stringaRicevuta = in.readLine();
-        System.out.println(stringaRicevuta);
+            if(!stringaInviata.equals("!")){
+               
+                System.out.println(stringaRicevuta); 
+            }
+            
+            
+        }while(!stringaInviata.equals("!"));
         s.close();
     }
 }
