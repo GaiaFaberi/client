@@ -90,6 +90,12 @@ public class Main {
                         case "0":
                             out.writeBytes("!" + '\n');
                             break;
+                        
+                        default:
+                           out.writeBytes(scelta + '\n'); 
+                           if(in.readLine().equals("!!")){
+                            System.out.println("Crisi di governo: Marracash ha fatto la piadina \n");
+                           }
             }
 
         }while(!scelta.equals("0"));
