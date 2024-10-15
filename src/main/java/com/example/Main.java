@@ -85,10 +85,13 @@ public class Main {
                                 System.out.println(stringaRicevuta1 + "\n");
 
                             }
-                        break;   
+                            break;   
+                        
+                        case "0":
+                            out.writeBytes("!" + '\n');
+                            break;
             }
 
         }while(!scelta.equals("0"));
-        s.close();
     }
 }
